@@ -14,8 +14,8 @@ const App = () => {
   );
   return (
     <div>
-     month
-     weather
+    {/* latitude: {this.position} */}
+    Latt:
     </div>
   )
 }
