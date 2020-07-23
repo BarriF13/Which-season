@@ -102,7 +102,7 @@ class App extends Component {
     // }
     return(
       
-        <Loader />
+        <Loader message="Please accept location request"/>
      
     )
   }
