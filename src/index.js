@@ -49,11 +49,36 @@ class App extends Component {
 
   render() {
    //render func keep updating  so better to not having functions here
-    return (
+    // return (
+    //   <div>
+    //     Latitude:{this.state.lat}<br/>
+    //     Error: {this.state.errorMessage}
+    //   </div>
+    // )
+
+    if(this.state.errorMessage  && !this.state.lat){
+      return (
       <div>
-        Latitude:{this.state.lat}<br/>
-        Error: {this.state.errorMessage}
+         Error: {this.state.errorMessage}
       </div>
+      )
+    }
+    if( !this.state.errorMessage  && this.state.lat){
+      return (
+      <div>
+         Latitude:{this.state.lat}
+      </div>
+      )
+    }
+    // if( !this.state.errorMessage  && !this.state.lat){
+    //   return (
+    //   <div>
+    //      loading ...
+    //   </div>
+    //   )
+    // }
+    return(
+      <div>Loading...!</div>
     )
   }
 
