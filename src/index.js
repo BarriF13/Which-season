@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
 import SeasonDisplay from './SeasonDisplay'
-
+import Loader from './Loader'
 //for deciding the season weather we need the latitude of the user
 // const App = () => {
 //   //making a call to the api
@@ -101,7 +101,9 @@ class App extends Component {
     //   )
     // }
     return(
-      <div>Loading...!</div>
+      
+        <Loader />
+     
     )
   }
 
