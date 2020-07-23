@@ -9,7 +9,7 @@ const getSeason =( lat, month)=>{
   return lat > 0 ? 'winter' : 'summer';
  }
 
-}
+};
 
 
 const SeasonDisplay = (props) => {
@@ -17,9 +17,9 @@ const SeasonDisplay = (props) => {
 
   return (
     <div>
-     season is  {season}
+    <h1 style={{color: 'red'}}>{season === 'winter' ? 'Good god, it is chilly': 'Lovely summer time'}</h1> 
     </div>
-  )
-}
+  );
+};
 
 export default SeasonDisplay;
