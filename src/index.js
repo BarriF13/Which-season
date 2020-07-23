@@ -28,11 +28,26 @@ class App extends Component {
      //now we init state object- null = we don't know what the latitude is yet.
      this.state ={ lat: null, errorMessage:'' };
      //better to put the function when we call the app
-     window.navigator.geolocation.getCurrentPosition(
+    //  window.navigator.geolocation.getCurrentPosition(
 
-      // (position) => console.log(position),
-      //we want to take latitude out of position object and using alone in state object above- so we use seState and we pass the object that has the update state that we want to make - in this case we want to use position object to update lat property 
-      // we call setState to update state object
+    //   // (position) => console.log(position),
+    //   //we want to take latitude out of position object and using alone in state object above- so we use seState and we pass the object that has the update state that we want to make - in this case we want to use position object to update lat property 
+    //   // we call setState to update state object
+    //    (position) => {
+    //     this.setState({ lat: position.coords.latitude
+    //     })
+    //    },
+
+    //   (err) =>{
+    //     //  console.log(err);
+    //     this.setState({
+    //       errorMessage: err.message
+    //     })
+    //   }
+    // );
+  }
+  componentDidMount(){
+    window.navigator.geolocation.getCurrentPosition(
        (position) => {
         this.setState({ lat: position.coords.latitude
         })
@@ -45,9 +60,7 @@ class App extends Component {
         })
       }
     );
-  }
-  componentDidMount(){
-    
+
   }
   // first function
   // componentDidMount(){
