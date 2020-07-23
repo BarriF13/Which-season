@@ -46,7 +46,16 @@ class App extends Component {
       }
     );
   }
-
+  componentDidMount(){
+    
+  }
+  // first function
+  // componentDidMount(){
+  //   console.log('i had a go');
+  // }
+  // componentDidUpdate(){
+  //   console.log('I am updated');
+  // }
   render() {
    //render func keep updating  so better to not having functions here
     // return (
