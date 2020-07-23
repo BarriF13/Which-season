@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 //for deciding the season weather we need the latitude of the user
 // const App = () => {
 //   //making a call to the api
-  
+
 //   window.navigator.geolocation.getCurrentPosition(
 //     //to get the user location we need to set to separate function call back
 //     //call back one success
@@ -22,16 +22,21 @@ import ReactDOM from 'react-dom'
 //   )
 // }
 class App extends Component {
+  constructor(props) {
+     super(props);
+     //now we init state object- null = we don't know what is the latitude is yet.
+     this.state ={ lat: null };
+  }
 
-  render(){
+  render() {
     window.navigator.geolocation.getCurrentPosition(
-        
-      (position)=>console.log(position),
-    
-      (err)=>console.log(err)
+
+      (position) => console.log(position),
+
+      (err) => console.log(err)
     );
-    return(
-      <div> 
+    return (
+      <div>
         Latitude:
       </div>
     )
@@ -41,4 +46,4 @@ class App extends Component {
 
 export default App;
 
-ReactDOM.render(<App/>, document.querySelector('#root'))
+ReactDOM.render(<App />, document.querySelector('#root'))
