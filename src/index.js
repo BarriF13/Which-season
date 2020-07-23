@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react'
-
 import ReactDOM from 'react-dom'
+
+import SeasonDisplay from './SeasonDisplay'
 
 //for deciding the season weather we need the latitude of the user
 // const App = () => {
@@ -22,43 +23,42 @@ import ReactDOM from 'react-dom'
 //   )
 // }
 class App extends Component {
-  constructor(props) {
-     super(props);
-     // THIS IS THE ONLY TIME WE DO DIRECT ASSIGNMENT to this.state 
-     //now we init state object- null = we don't know what the latitude is yet.
-     this.state ={ lat: null, errorMessage:'' };
-     //better to put the function when we call the app
-    //  window.navigator.geolocation.getCurrentPosition(
+  // constructor(props) {
+  //    super(props);
+  //    // THIS IS THE ONLY TIME WE DO DIRECT ASSIGNMENT to this.state 
+  //    //now we init state object- null = we don't know what the latitude is yet.
+  //    this.state ={ lat: null, errorMessage:'' };
+  //    //better to put the function when we call the app
+  //   //  window.navigator.geolocation.getCurrentPosition(
 
-    //   // (position) => console.log(position),
-    //   //we want to take latitude out of position object and using alone in state object above- so we use seState and we pass the object that has the update state that we want to make - in this case we want to use position object to update lat property 
-    //   // we call setState to update state object
-    //    (position) => {
-    //     this.setState({ lat: position.coords.latitude
-    //     })
-    //    },
+  //   //   // (position) => console.log(position),
+  //   //   //we want to take latitude out of position object and using alone in state object above- so we use seState and we pass the object that has the update state that we want to make - in this case we want to use position object to update lat property 
+  //   //   // we call setState to update state object
+  //   //    (position) => {
+  //   //     this.setState({ lat: position.coords.latitude
+  //   //     })
+  //   //    },
 
-    //   (err) =>{
-    //     //  console.log(err);
-    //     this.setState({
-    //       errorMessage: err.message
-    //     })
-    //   }
-    // );
+  //   //   (err) =>{
+  //   //     //  console.log(err);
+  //   //     this.setState({
+  //   //       errorMessage: err.message
+  //   //     })
+  //   //   }
+  //   // );
+  // }
+  //Babeljs.io
+  state = {
+    lat: null,
+    errorMessage:''
   }
   componentDidMount(){
     window.navigator.geolocation.getCurrentPosition(
-       (position) => {
-        this.setState({ lat: position.coords.latitude
-        })
-       },
+       (position) => 
+        this.setState({ lat: position.coords.latitude }),
 
-      (err) =>{
-        //  console.log(err);
-        this.setState({
-          errorMessage: err.message
-        })
-      }
+      (err) => this.setState({ errorMessage: err.message })
+      
     );
 
   }
@@ -88,7 +88,8 @@ class App extends Component {
     if( !this.state.errorMessage  && this.state.lat){
       return (
       <div>
-         Latitude:{this.state.lat}
+         {/* Latitude:{this.state.lat} */}
+         <SeasonDisplay lat={this.state.lat}/>
       </div>
       )
     }
