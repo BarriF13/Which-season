@@ -1,28 +1,20 @@
 // functional components by using hooks 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import SeasonDisplay from './SeasonDisplay';
 import Loader from './Loader';
-
+import useLocation from './useLocation';
 
 
 const App = () => {
-  const [lat, setLat] = useState(null)
-  const [errorMessage, setErrorMessage] = useState('');
-  //by passing empty array in the end of the useEffect function it means we only want to run the function once in total of the lifecycle method of this component 
-  useEffect(() => {
-    window.navigator.geolocation.getCurrentPosition(
-      (position) => setLat(position.coords.latitude),
-      (err) => setErrorMessage(err.message)
-    );
-  }, []);
 
+  const [lat, errorMessage] = useLocation();
   let content;
   if (errorMessage) {
     content = <div>Error: {errorMessage}</div>
-  } else if (lat){
-    content = <SeasonDisplay lat = {lat} />
+  } else if (lat) {
+    content = <SeasonDisplay lat={lat} />
   } else {
     content = <Loader message="Please accept location request" />;
   }
